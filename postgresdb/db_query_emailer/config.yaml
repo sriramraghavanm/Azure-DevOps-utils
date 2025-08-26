@@ -1,0 +1,17 @@
+DATABASE_HOST: "<db-account-name>.postgres.database.azure.com"
+DATABASE_NAME: "<db-name>"
+DATABASE_USER_NAME: "<db-username>"
+DATABASE_PASSWORD: "<db-password>"
+DATABASE_PORT: 5432
+query: |
+  SELECT * FROM reservations WHERE reservation_date >= CURRENT_DATE - INTERVAL '{interval} days';
+email:
+  sender: "reservationreporter-noreply@brand.com"
+  recipients:
+    - "fname.lname@brand.com"
+  subject: "Daily NRS Reservations Report"
+  body: "Attached is the NRS reservations report for today."
+  smtp_host: "smtp.brand.com"
+  smtp_port: 25
+  smtp_user: ""
+  smtp_password: ""
